@@ -17,6 +17,9 @@ function build() {
 		echo "Failed login $IMAGE_REGISTRY for user $QUAY_IO_CREDS_USR " 
 		exit $ERR
 	fi
+	echo "Mirror buildah login info into ~/.docker/config.json for cosign"
+	echo "cat ${XDG_RUNTIME_DIR}/containers/auth.json > ~/.docker/config.json" 
+	cat ${XDG_RUNTIME_DIR}/containers/auth.json > ~/.docker/config.json
 
 	# Check if the Dockerfile exists
 	SOURCE_CODE_DIR=.
