@@ -17,10 +17,7 @@ function build() {
 		echo "Failed login $IMAGE_REGISTRY for user $QUAY_IO_CREDS_USR " 
 		exit $ERR
 	fi
-	echo "PRE_13"
-	echo "cat ${XDG_RUNTIME_DIR}/containers/auth.json > ~/.docker/config.json" 
-	cat ${XDG_RUNTIME_DIR}/containers/auth.json > ~/.docker/config.json
-	echo "------------------"
+
 	# Check if the Dockerfile exists
 	SOURCE_CODE_DIR=.
 	if [ -e "$SOURCE_CODE_DIR/$CONTEXT/$DOCKERFILE" ]; then
