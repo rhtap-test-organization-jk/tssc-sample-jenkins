@@ -18,7 +18,6 @@ function build() {
 		exit $ERR
 	fi
 	echo "Mirror buildah login info into ~/.docker/config.json for cosign"
- 	echo ${XDG_RUNTIME_DIR}
 	echo "cat ${XDG_RUNTIME_DIR}/containers/auth.json > ~/.docker/config.json" 
  	#cat /run/containers/0/containers/auth.json > ~/.docker/config.json
   	mkdir ~/.docker
@@ -76,7 +75,9 @@ function generate-sboms() {
 }
 
 function upload-sbom() {
-	echo "Running $TASK_NAME:upload-sbom" 
+	echo "Running $TASK_NAME:upload-sbom"
+ 	echo $COSIGN_PUBLIC_KEY
+  	echo $COSIGN_PRIVATE_KEY
 	cosign attach sbom --sbom $TEMP_DIR/files/sbom-cyclonedx.json --type cyclonedx "$IMAGE"
 }
 function delim() { 
