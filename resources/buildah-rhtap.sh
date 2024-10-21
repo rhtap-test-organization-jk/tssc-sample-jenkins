@@ -18,6 +18,7 @@ function build() {
 		exit $ERR
 	fi
 	echo "Mirror buildah login info into ~/.docker/config.json for cosign"
+ 	echo ${XDG_RUNTIME_DIR}
 	echo "cat ${XDG_RUNTIME_DIR}/containers/auth.json > ~/.docker/config.json" 
  	#cat /run/containers/0/containers/auth.json > ~/.docker/config.json
   	mkdir ~/.docker
