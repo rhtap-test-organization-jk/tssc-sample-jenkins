@@ -77,7 +77,7 @@ function generate-sboms() {
 function upload-sbom() {
 	echo "Running $TASK_NAME:upload-sbom"
  	echo $COSIGN_PUBLIC_KEY
-  	echo $COSIGN_PRIVATE_KEY
+  	echo $COSIGN_SECRET_KEY
 	cosign attach sbom --sbom $TEMP_DIR/files/sbom-cyclonedx.json --type cyclonedx "$IMAGE"
 }
 function delim() { 
