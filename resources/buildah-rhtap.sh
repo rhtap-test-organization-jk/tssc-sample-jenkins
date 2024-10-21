@@ -19,7 +19,8 @@ function build() {
 	fi
 	echo "Mirror buildah login info into ~/.docker/config.json for cosign"
 	echo "cat ${XDG_RUNTIME_DIR}/containers/auth.json > ~/.docker/config.json" 
-	cat ${XDG_RUNTIME_DIR}/containers/auth.json > ~/.docker/config.json
+ 	cat /run/containers/0/containers/auth.json > ~/.docker/config.json
+	# cat ${XDG_RUNTIME_DIR}/containers/auth.json > ~/.docker/config.json
 
 	# Check if the Dockerfile exists
 	SOURCE_CODE_DIR=.
